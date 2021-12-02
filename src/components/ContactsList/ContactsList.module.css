@@ -1,0 +1,112 @@
+.table_wrapper {
+  position: relative;
+  padding: 20px 0 6px 0;
+  margin: 10px 0 10px 10px;
+  width: 700px;
+  max-height: 380px;
+  border: solid 0.1px rgb(230, 230, 230);
+  border-radius: 5px;
+  /*background-color: rgb(250, 250, 250);*/
+}
+
+.table_wrapper__scroll {
+  width: 690px;
+  min-height: 160px;
+  max-height: 360px;
+  padding: 0 6px 0 0;
+  overflow: hidden;
+  overflow-y: auto;
+  border-top: 0.1px solid rgb(240, 240, 240);
+  box-shadow: 0 -5px 5px 0 rgb(245, 245, 245);
+}
+
+.table_wrapper__scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.table_wrapper__scroll::-webkit-scrollbar-track {
+  box-shadow: 6px 6px 6px -8px rgba(190, 190, 190) inset;
+  background-color: rgb(240, 240, 240);
+  border-radius: 6px;
+}
+
+.table_wrapper__scroll::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: rgb(215, 215, 215);
+}
+
+.table {
+  margin: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.table_header > tr > th > div[label]:before {
+  content: attr(label);
+  color: rgb(180, 180, 180);
+  z-index: 10;
+}
+
+.table_header__floating_cell {
+  font-weight: 400;
+  font-size: 11px;
+  position: absolute;
+  top: 3px;
+}
+
+.table_row {
+  transition: background-color 0.25s;
+}
+
+.table_row:nth-child(2n - 1) {
+  background-color: rgb(240, 240, 240);
+}
+.table_row:hover {
+  background-color: hsl(0, 0%, 90%);
+}
+
+.item {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 350;
+  color: rgb(120, 120, 120);
+  border-radius: 5px;
+  padding: 4px;
+}
+
+.table_row:hover .btn {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.name,
+.number,
+.email {
+  min-width: 160px;
+}
+
+.btn {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  border-radius: 5px;
+  color: rgb(190, 190, 190);
+  opacity: 0.3;
+  cursor: pointer;
+  transition: color 0.2s, color 0.2s, opacity 0.2s;
+}
+
+.btn:hover {
+  color: rgb(90, 20, 20);
+}
+
+.contact {
+  color: rgb(120, 120, 120);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contact:hover {
+  text-decoration: underline;
+  color: rgb(60, 60, 60);
+}
