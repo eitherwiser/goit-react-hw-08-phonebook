@@ -1,0 +1,1 @@
+{"version":3,"sources":["views/UnknownPage/UnknownPage.jsx"],"names":["UnknownPage"],"mappings":"0MAMeA,EANK,WAClB,OACE","file":"static/js/6.f2d343bf.chunk.js","sourcesContent":["const UnknownPage = () => {\r\n  return (\r\n    <h1>UnknownPage</h1>\r\n  )\r\n}\r\n\r\nexport default UnknownPage;"],"sourceRoot":""}
