@@ -1,9 +1,9 @@
 import {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Loader from '../../components/Loader/Loader.jsx'
+import Loader from 'components/Loader/Loader.jsx'
 
-import Filter from '../../components/Filter/Filter.jsx';
-import { fetchContacts, deleteContact } from '../../redux/contacts/contacts-operations';
+import Filter from 'components/Filter/Filter.jsx';
+import { fetchContacts, deleteContact } from 'redux/contacts/contacts-operations';
 import s from "./ContactsList.module.css";
 //
 
@@ -13,9 +13,7 @@ import s from "./ContactsList.module.css";
         contact.name.toLowerCase().includes(normalizeFilter)))
       const number = allContacts.filter((contact) => (
         contact.number.toLowerCase().includes(normalizeFilter)))
-      const email = allContacts.filter((contact) => (
-        contact.email.toLowerCase().includes(normalizeFilter)))
-      const allResults = [...name, ...number, ...email];
+      const allResults = [...name, ...number];
       return [...new Set(allResults)];
     };
 //
@@ -24,8 +22,8 @@ import s from "./ContactsList.module.css";
 const ContactsList = () => {
 
   const dispatch = useDispatch();
-  const contacts = useSelector(state => visibleContacts(state.contacts.items, state.contacts.filter));
-  const isLoading = useSelector(state => state.contacts.loading)
+  const contacts = useSelector((state) => visibleContacts(state.contacts.items, state.contacts.filter));
+  const isLoading = useSelector((state) => state.contacts.loading)
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -35,9 +33,9 @@ const ContactsList = () => {
   return (
     <>
       <Filter />
-      {!contacts.length && <h4>Contacts list is empty.</h4>}
+      {!contacts.length && !isLoading && <h4>Contacts list is empty.</h4>}
       {isLoading && <Loader/>}
-      {!!contacts.length && 
+      {!!contacts.length && !isLoading &&
         <div className={s.table_wrapper}>
         <div className={s.table_wrapper__scroll}>
         <table className={s.table}>
@@ -46,17 +44,15 @@ const ContactsList = () => {
           <tr>
             <th><div className={s.table_header__floating_cell} label="Name"></div></th>
             <th><div className={s.table_header__floating_cell} label="Phone number"></div></th>
-            <th><div className={s.table_header__floating_cell} label="E-mail"></div></th>
             <th><div className={s.table_header__floating_cell} label="Options"></div></th>
             <th class="scrollbarhead"/>
           </tr>
           </thead>
           <tbody className={s.tbody}>
-          {contacts.map(({ name, number, email, id }) => (
+          {contacts.map(({id, name, number }) => (
             <tr key={id} className={s.table_row}>
             <td className={`${s.item} + ${ s.name}`}>{name}&nbsp;</td>
             <td className={`${s.item} + ${ s.number}`}><a href={"tel:" + { number }} className={s.contact}>{number}</a></td>
-            <td className={`${s.item} + ${ s.email}`}><a href={"mailto:" + { email }} className={s.contact}>{email}</a></td>
             <td className={`${s.item} + ${ s.options}`}>
               <button
                 type="button"

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { addContact } from "../../redux/contacts/contacts-operations"
+import { addContact } from "redux/contacts/contacts-operations"
 import s from "./Form.module.css";
 //
 
@@ -13,7 +13,6 @@ const ContactForm = () => {
 
   const [name, setName] = useState('')
   const [number, setNumber] = useState('')
-  const [email, setEmail] = useState('')
 
   const handleOnChange = (e) => {
     const { type, value } = e.target;
@@ -25,34 +24,33 @@ const ContactForm = () => {
       case 'tel':
         setNumber(value);
         break;
-      
-      case 'email':
-        setEmail(value);
-        break;
 
       default:
         break;
     }
   };
 
-  const onSubmit = (e) => {
-    if (contacts.some(contact => contact.name === name)) {
-      alert(`"${name}" is already in your phonebook.`)
-      return;
-    } else if (contacts.some(contact => contact.number === number)) {
-      alert(`Person with number "${number}" is already in your phonebook.`)
-      return;
-    }
-      else if (contacts.some(contact => contact.email === email)) {
-      alert(`Person with E-mail "${email}" is already in your phonebook.`)
-      return;
-    }
-    dispatch(addContact({ name, number, email }))
+  const resetForm = (e) => {
+    e.preventDefault();
     setName('');
     setNumber('');
-    setEmail('');
-    e.preventDefault();
+  }
+
+  const onSubmit = (e) => {
+    if (contacts.some(contact => contact.name === name)) {
+      resetForm(e);
+      return alert(`"${name}" is already in your phonebook.`);
+    }
+    else if (contacts.some(contact => contact.number === number)) {
+      resetForm(e);
+      return alert(`Person with number "${number}" is already in your phonebook.`);
+    }
+    else {
+      dispatch(addContact({ name, number }));
+      resetForm(e);
+    }    
   };
+
 
   return (
     <div>
@@ -61,7 +59,7 @@ const ContactForm = () => {
           Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input
             className={s.input}
-            type="name"
+            type="text"
             onChange={handleOnChange}
             value={name}
             name="name"
@@ -70,27 +68,10 @@ const ContactForm = () => {
             required
           />
           <button onClick={() => setName('')} className={`${s.reset_btn}`} type="button">
-            X
+            x
           </button>
           </label>
 
-                <label className={s.label}>
-          E-mail &nbsp;
-          <input
-            className={s.input}
-            type="email"
-            onChange={handleOnChange}
-            name="email"
-            value={email}
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            title="Example: bob.pupkin@somemail.com"
-            required
-          />
-          <button onClick={() => setEmail('')} className={`${s.reset_btn}`} type="button">
-            X
-          </button>
-          </label>
-  
         <label className={s.label}>
           Number &nbsp;
           <input
@@ -104,10 +85,9 @@ const ContactForm = () => {
             required
           />
           <button onClick={() => setNumber('')} className={`${s.reset_btn}`} type="button">
-            X
+            x
           </button>
         </label>
-
         <button className={`${s.submit__btn} ${ s.btn}`} type="onSubmit">
             Add contact
           </button>

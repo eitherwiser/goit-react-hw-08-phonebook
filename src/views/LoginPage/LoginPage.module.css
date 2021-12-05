@@ -1,0 +1,13 @@
+.navigation {
+  font-size: 14px;
+}
+
+.navigation a {
+  color: #909090;
+  font-weight: 400;
+}
+
+.navigation a:hover {
+  color: #606060;
+  text-shadow: #909090 0.2px 0.2px 1px;
+}
