@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  margin: 50px;
+  font-size: 180px;
+  text-shadow: 2px 2px 0 rgba(250, 250, 250, 0.8),
+    2.6px 2.6px 0.2px rgba(120, 120, 120, 0.6),
+    4px 4px 0.8px rgba(180, 180, 180, 0.6), 6px 6px 1px white;
+}
+
+.navigation {
+  font-size: 14px;
+}
+
+.navigation a {
+  color: #909090;
+  font-weight: 400;
+}
+
+.navigation a:hover {
+  color: #606060;
+  text-shadow: #909090 0.2px 0.2px 1px;
+}

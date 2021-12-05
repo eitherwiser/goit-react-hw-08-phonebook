@@ -60,7 +60,7 @@ const LoginForm = () => {
             required
           />
           <button onClick={() => setEmail('')} className={`${s.reset_btn}`} type="button">
-            X
+            x
           </button>
         </label>
   
@@ -76,7 +76,7 @@ const LoginForm = () => {
             required
           />
           <button onClick={() => setPassword('')} className={`${s.reset_btn}`} type="button">
-            X
+            x
           </button>
         </label>
 

@@ -80,7 +80,7 @@ const RegistrationForm = () => {
             required
           />
           <button onClick={() => setName('')} className={`${s.reset_btn}`} type="button">
-            X
+            x
           </button>
           </label>
 
@@ -97,7 +97,7 @@ const RegistrationForm = () => {
             required
           />
           <button onClick={() => setEmail('')} className={`${s.reset_btn}`} type="button">
-            X
+            x
           </button>
           </label>
   
@@ -113,7 +113,7 @@ const RegistrationForm = () => {
             required
           />
           <button onClick={() => setPassword('')} className={`${s.reset_btn}`} type="button">
-            X
+            x
           </button>
         </label>
 
@@ -129,13 +129,13 @@ const RegistrationForm = () => {
             required
           />
           <button onClick={() => setConfirmPassword('')} className={`${s.reset_btn}`} type="button">
-            X
+            x
           </button>
         </label>
 
 
         <button className={`${s.submit__btn} ${ s.btn}`} type="onSubmit">
-            Add contact
+            Registration
           </button>
         </form>
     </div>

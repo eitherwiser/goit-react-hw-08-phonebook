@@ -56,7 +56,7 @@ const ContactForm = () => {
     <div>
         <form onSubmit={onSubmit} className={s.form}>
         <label className={s.label}>
-          Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Name &nbsp;
           <input
             className={s.input}
             type="text"

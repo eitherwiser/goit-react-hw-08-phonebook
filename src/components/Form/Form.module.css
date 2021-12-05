@@ -1,11 +1,11 @@
 .form {
   height: 90px;
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: wrap;
   padding: 10px;
   margin: 10px 0 10px;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   border: solid 0.1px rgb(230, 230, 230);
   border-radius: 5px;
 }
@@ -15,21 +15,24 @@
   align-items: center;
   position: relative;
   font-size: 14px;
-  margin: 0 auto 10px auto;
+  margin-bottom: 10px;
 }
 
 .input {
   color: rgb(90, 90, 90);
-  min-width: 240px;
-  height: 24px;
+  font-size: 14px;
+  font-weight: 400;
+  justify-content: center;
+  padding: 0 30px 0 8px;
+  width: 240px;
+  height: 26px;
   border-radius: 5px;
   border: 0.1px solid rgb(230, 230, 230);
 }
 .btn {
-  display: block;
-  /*margin: 0 auto 0 auto;*/
+  margin: 5px auto 0 auto;
   width: 160px;
-  height: 20px;
+  height: 24px;
   font-size: 14px;
   color: rgb(90, 90, 90);
   border: 0.1px solid rgb(200, 200, 200);
@@ -42,9 +45,12 @@
   position: absolute;
   right: 0;
   margin: 0 2px 0 auto;
-  height: 20px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  width: 0 auto 0 auto;
   font-size: 10px;
-  color: rgb(120, 120, 120);
+  color: rgb(140, 140, 140);
   border: none;
   background-color: rgb(245, 245, 245);
   border-radius: 5px;
@@ -55,3 +61,17 @@
 .reset_btn:hover {
   background-color: rgb(230, 230, 230);
 }
+
+/*.input[placeholder]:after {
+  content: attr(placeholder);
+  padding-left: 5px;
+  padding-top: 3px;
+  font-weight: 400;
+  position: absolute;
+  top: -20px;
+  left: -21px;
+  color: rgb(90, 90, 90);
+  font-size: 14px;
+  z-index: 2;
+  transition: all 0.2s ease-in-out;
+}*/
