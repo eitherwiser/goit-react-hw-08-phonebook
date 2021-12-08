@@ -109,7 +109,6 @@ const RegistrationForm = () => {
             onChange={handleOnChange}
             name="password"
             value={password}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             required
           />
           <button onClick={() => setPassword('')} className={`${s.reset_btn}`} type="button">
@@ -125,7 +124,6 @@ const RegistrationForm = () => {
             onChange={handleOnChange}
             name="confirmPassword"
             value={confirmPassword}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             required
           />
           <button onClick={() => setConfirmPassword('')} className={`${s.reset_btn}`} type="button">
